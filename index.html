@@ -1,217 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="WellPath Clinic – Accessible healthcare service landing page by Cameron Olivier" />
-  <title>WellPath Clinic | Accessible Healthcare Services</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WellPath Clinic - Accessible Contact Page</title>
+<style>
+  /* Base styles */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    background-color: #fff;
+    color: #004080;
+    margin: 0;
+    padding: 0 1rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
 
-  <!-- -------------  CSS ------------- -->
-  <style>
-    /* Color tokens (light) */
-    :root{
-      --bg:#f5f9fb;
-      --text:#1a1a1a;
-      --primary:#004080;
-      --link:#0366d6;
-      --card:#ffffff;
-      --footer:#e0e7f3;
-    }
-    /* Dark-mode overrides */
-    body.dark{
-      --bg:#121212;
-      --text:#f1f1f1;
-      --primary:#90caf9;
-      --link:#58a6ff;
-      --card:#1e1e1e;
-      --footer:#1a1a1a;
-    }
+  header, nav, main, footer {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
-    /* Reset / base */
-    *,*:before,*:after{box-sizing:border-box;}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      line-height:1.6;
-      background:var(--bg);
-      color:var(--text);
-    }
-    a{color:var(--link);text-decoration:none;}
-    a:hover,a:focus{text-decoration:underline;outline:none;}
-    h1,h2,h3{margin-top:0;color:var(--primary);}
+  header {
+    padding: 1rem 0;
+  }
 
-    /* Layout */
-    header{
-      background:var(--primary);color:#fff;
-      padding:1rem 1.5rem;
-      position:sticky;top:0;z-index:1000;
-      display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
-    }
-    header nav{display:flex;gap:1.25rem;font-weight:600;}
-    #themeToggle{
-      background:#fff;color:var(--primary);
-      border:none;border-radius:4px;
-      padding:.45rem .9rem;font-weight:700;cursor:pointer;
-    }
-    #themeToggle:hover,#themeToggle:focus{background:#dce9f6;outline:none;}
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
 
-    main{max-width:900px;margin:2rem auto;padding:0 1rem;}
-    section{margin-bottom:3rem;}
+  nav ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    gap: 1rem;
+  }
 
-    .hero{background:var(--card);padding:2rem 1rem;border-radius:8px;
-          box-shadow:0 2px 6px rgb(0 0 0 / .1);text-align:center;}
-    .hero h1{font-size:2.5rem;margin-bottom:.5rem;}
-    .hero p{font-size:1.1rem;max-width:550px;margin:0 auto 1rem;}
+  nav a {
+    color: #0366d6;
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-    .services-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
-    .service{background:var(--card);padding:1.25rem;border-radius:8px;
-             box-shadow:0 1px 4px rgb(0 0 0 / .1);text-align:center;}
+  nav a:hover,
+  nav a:focus {
+    color: #003366;
+    outline: 2px solid #003366;
+    outline-offset: 2px;
+  }
 
-    .doctors-list{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;}
-    .doctor{background:var(--card);padding:1rem;border-radius:8px;width:200px;text-align:center;
-            box-shadow:0 1px 5px rgb(0 0 0 / .1);}
-    .doctor img{border-radius:50%;width:120px;height:120px;object-fit:cover;margin-bottom:.75rem;}
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    background: #0366d6;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: left 0.3s ease;
+  }
 
-    form{background:var(--card);padding:1.5rem 1rem;border-radius:8px;
-         box-shadow:0 2px 6px rgb(0 0 0 / .1);max-width:480px;margin:0 auto;}
-    label{display:block;margin-bottom:.25rem;font-weight:600;color:var(--primary);}
-    input,textarea{width:100%;padding:.5rem;margin-bottom:1rem;border:2px solid #ccc;border-radius:6px;font-size:1rem;}
-    input:focus,textarea:focus{border-color:var(--link);outline:none;box-shadow:0 0 3px var(--link);}
-    button{background:var(--primary);color:#fff;font-weight:700;padding:.6rem 1.2rem;border:none;border-radius:6px;
-           cursor:pointer;font-size:1rem;transition:background .3s;}
-    button:hover,button:focus{background:#003366;outline:none;}
+  .skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    border-radius: 4px;
+  }
 
-    footer{background:var(--footer);text-align:center;padding:1rem;font-size:.9rem;color:var(--text);margin-top:3rem;}
+  button#darkModeToggle {
+    background: #0366d6;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: auto;
+    transition: background-color 0.3s;
+  }
 
-    .skip-link{position:absolute;top:-40px;left:0;background:var(--primary);color:#fff;padding:8px;z-index:100;transition:top .3s;}
-    .skip-link:focus{top:0;}
+  button#darkModeToggle:hover,
+  button#darkModeToggle:focus {
+    background: #003366;
+    outline: 2px solid #003366;
+    outline-offset: 2px;
+  }
 
-    @media(max-width:600px){.doctors-list{flex-direction:column;align-items:center;}}
-  </style>
+  main {
+    padding: 1rem 0 2rem 0;
+  }
+
+  form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="tel"],
+  form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #004080;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  form input[type="text"]:focus,
+  form input[type="email"]:focus,
+  form input[type="tel"]:focus,
+  form textarea:focus {
+    border-color: #0366d6;
+    box-shadow: 0 0 3px #0366d6;
+    outline: none;
+  }
+
+  form small {
+    font-size: 0.875rem;
+    color: #555;
+  }
+
+  button[type="submit"] {
+    margin-top: 1.5rem;
+    background-color: #004080;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button[type="submit"]:hover,
+  button[type="submit"]:focus {
+    background-color: #003366;
+    outline: 2px solid #003366;
+    outline-offset: 2px;
+  }
+
+  .error-message {
+    color: #d93025;
+    font-size: 0.9rem;
+    min-height: 1.2em;
+    margin-top: -0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  input[aria-invalid="true"],
+  textarea[aria-invalid="true"] {
+    border-color: #d93025;
+    box-shadow: 0 0 3px #d93025;
+  }
+
+  #formStatus {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: green;
+    display: none;
+  }
+
+  /* Dark Mode Styles */
+  body.dark-mode {
+    background-color: #121212;
+    color: #cbd5e1;
+  }
+
+  body.dark-mode nav a {
+    color: #60a5fa;
+  }
+
+  body.dark-mode nav a:hover,
+  body.dark-mode nav a:focus {
+    color: #2563eb;
+  }
+
+  body.dark-mode form input[type="text"],
+  body.dark-mode form input[type="email"],
+  body.dark-mode form input[type="tel"],
+  body.dark-mode form textarea {
+    background-color: #1e293b;
+    color: #cbd5e1;
+    border-color: #60a5fa;
+  }
+
+  body.dark-mode form input[type="text"]:focus,
+  body.dark-mode form input[type="email"]:focus,
+  body.dark-mode form input[type="tel"]:focus,
+  body.dark-mode form textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 3px #2563eb;
+  }
+
+  body.dark-mode button#darkModeToggle {
+    background-color: #60a5fa;
+    color: #1e293b;
+  }
+
+  body.dark-mode button#darkModeToggle:hover,
+  body.dark-mode button#darkModeToggle:focus {
+    background-color: #2563eb;
+    outline-color: #2563eb;
+  }
+
+  body.dark-mode button[type="submit"] {
+    background-color: #2563eb;
+  }
+
+  body.dark-mode button[type="submit"]:hover,
+  body.dark-mode button[type="submit"]:focus {
+    background-color: #1e40af;
+  }
+
+  body.dark-mode .error-message {
+    color: #f87171;
+  }
+
+  body.dark-mode input[aria-invalid="true"],
+  body.dark-mode textarea[aria-invalid="true"] {
+    border-color: #f87171;
+    box-shadow: 0 0 3px #f87171;
+  }
+</style>
 </head>
-
 <body>
-  <a href="#maincontent" class="skip-link">Skip to main content</a>
+<a href="#maincontent" class="skip-link">Skip to main content</a>
 
-  <!-- ----------  Header  ---------- -->
-  <header role="banner">
-    <nav aria-label="Primary navigation">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#doctors">Our Doctors</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button id="themeToggle" aria-label="Toggle dark mode">Dark&nbsp;Mode</button>
-  </header>
+<header>
+  <h1>WellPath Clinic</h1>
+  <nav aria-label="Primary navigation">
+    <ul>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button id="darkModeToggle" aria-pressed="false" aria-label="Toggle dark mode">Dark Mode</button></li>
+    </ul>
+  </nav>
+</header>
 
-  <!-- ----------  Main  ---------- -->
-  <main id="maincontent" tabindex="-1">
-    <section id="home" class="hero" aria-label="Welcome section">
-      <h1>Welcome to WellPath Clinic</h1>
-      <p>Your trusted partner in accessible, compassionate healthcare.</p>
-      <p>Designed &amp; developed by Cameron Olivier</p>
-    </section>
+<main id="maincontent" tabindex="-1" role="main">
+  <section id="about" aria-labelledby="aboutTitle">
+    <h2 id="aboutTitle">About WellPath Clinic</h2>
+    <p>
+      Welcome to WellPath Clinic, your trusted healthcare partner. We provide comprehensive medical services to support your health and wellness.
+    </p>
+  </section>
 
-    <section id="services" aria-labelledby="services-title">
-      <h2 id="services-title">Our Services</h2>
-      <div class="services-list">
-        <article class="service" tabindex="0" aria-label="Primary care service">
-          <h3>Primary Care</h3>
-          <p>Comprehensive care including health screenings, chronic disease management, and wellness checks.</p>
-        </article>
-        <article class="service" tabindex="0" aria-label="Pediatrics service">
-          <h3>Pediatrics</h3>
-          <p>Child healthcare from infancy through adolescence by experienced pediatricians.</p>
-        </article>
-        <article class="service" tabindex="0" aria-label="Behavioral health service">
-          <h3>Behavioral Health</h3>
-          <p>Confidential counseling and mental health services tailored to individual needs.</p>
-        </article>
-        <article class="service" tabindex="0" aria-label="Women's health service">
-          <h3>Women's Health</h3>
-          <p>Specialized care including maternity, gynecology, and reproductive health support.</p>
-        </article>
-      </div>
-    </section>
+  <section id="services" aria-labelledby="servicesTitle">
+    <h2 id="servicesTitle">Our Services</h2>
+    <ul>
+      <li>Primary Care</li>
+      <li>Pediatrics</li>
+      <li>Women's Health</li>
+      <li>Immunizations & Vaccinations</li>
+      <li>Chronic Disease Management</li>
+    </ul>
+  </section>
 
-    <section id="doctors" aria-labelledby="doctors-title">
-      <h2 id="doctors-title">Meet Our Doctors</h2>
-      <div class="doctors-list">
-        <div class="doctor" tabindex="0" aria-label="Doctor Jane Smith, Primary Care Physician">
-          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Photo of Dr. Jane Smith" width="120" height="120" loading="lazy">
-          <h3>Dr. Jane Smith</h3><p>Primary Care Physician</p>
-        </div>
-        <div class="doctor" tabindex="0" aria-label="Doctor Robert Lee, Pediatrician">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Photo of Dr. Robert Lee" width="120" height="120" loading="lazy">
-          <h3>Dr. Robert Lee</h3><p>Pediatrician</p>
-        </div>
-        <div class="doctor" tabindex="0" aria-label="Doctor Emily Carter, Behavioral Health Specialist">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Photo of Dr. Emily Carter" width="120" height="120" loading="lazy">
-          <h3>Dr. Emily Carter</h3><p>Behavioral Health Specialist</p>
-        </div>
-        <div class="doctor" tabindex="0" aria-label="Doctor Michael Johnson, Women's Health Specialist">
-          <img src="https://randomuser.me/api/portraits/men/27.jpg" alt="Photo of Dr. Michael Johnson" width="120" height="120" loading="lazy">
-          <h3>Dr. Michael Johnson</h3><p>Women's Health Specialist</p>
-        </div>
-      </div>
-    </section>
+  <section id="contact" aria-labelledby="contactTitle">
+    <h2 id="contactTitle">Contact Us</h2>
+    <form id="contactForm" aria-describedby="formInstructions" novalidate>
+      <p id="formInstructions">Please fill in the form below to get in touch with us.</p>
 
-    <section id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact Us</h2>
-      <form id="contactForm" aria-describedby="formInstructions" novalidate>
-        <p id="formInstructions">Please fill in the form below to get in touch with us.</p>
-        <label for="name">Name *</label>
-        <input id="name" name="name" required>
+      <label for="name">Name <span aria-hidden="true">*</span></label>
+      <input type="text" id="name" name="name" aria-required="true" required aria-describedby="nameError" />
+      <div id="nameError" class="error-message" aria-live="assertive"></div>
 
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="email" required>
+      <label for="email">Email <span aria-hidden="true">*</span></label>
+      <input type="email" id="email" name="email" aria-required="true" required aria-describedby="emailError" />
+      <div id="emailError" class="error-message" aria-live="assertive"></div>
 
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" pattern="^\+?[\d\s\-]{7,15}$" aria-describedby="phoneHelp">
-        <small id="phoneHelp">Format: +1234567890 or 123-456-7890</small>
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" pattern="^\+?[\d\s\-]{7,15}$" aria-describedby="phoneHelp phoneError" />
+      <small id="phoneHelp">Format: +1234567890 or 123-456-7890</small>
+      <div id="phoneError" class="error-message" aria-live="assertive"></div>
 
-        <label for="message">Message *</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
+      <label for="message">Message <span aria-hidden="true">*</span></label>
+      <textarea id="message" name="message" rows="4" aria-required="true" required aria-describedby="messageError"></textarea>
+      <div id="messageError" class="error-message" aria-live="assertive"></div>
 
-        <button type="submit">Submit</button>
-        <p id="formStatus" role="alert" aria-live="polite" style="color:green;display:none">Thank you for contacting us! We will respond shortly.</p>
-      </form>
-    </section>
-  </main>
+      <button type="submit">Submit</button>
 
-  <!-- ----------  Footer  ---------- -->
-  <footer><p>© 2025 WellPath Clinic. Designed &amp; developed by Cameron Olivier.</p></footer>
+      <p id="formStatus" role="alert" aria-live="polite">Thank you for contacting us! We will respond shortly.</p>
+    </form>
+  </section>
+</main>
 
-  <!-- -------------  JavaScript ------------- -->
-  <script>
-    /* Smooth scroll & focus */
-    document.querySelectorAll('header nav a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{
-        e.preventDefault();
-        const t=document.querySelector(a.getAttribute('href'));
-        t.scrollIntoView({behavior:'smooth',block:'start'});
-        t.focus();
-      });
+<footer>
+  <p>&copy; 2025 WellPath Clinic. All rights reserved.</p>
+</footer>
+
+<script>
+  // Dark mode toggle
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    darkModeToggle.setAttribute('aria-pressed', isDark);
+  });
+
+  // Accessible form validation
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+
+  const errors = {
+    name: document.getElementById('nameError'),
+    email: document.getElementById('emailError'),
+    phone: document.getElementById('phoneError'),
+    message: document.getElementById('messageError'),
+  };
+
+  function clearErrors() {
+    Object.values(errors).forEach(el => (el.textContent = ''));
+    ['name', 'email', 'phone', 'message'].forEach(id => {
+      const field = form.elements[id];
+      field.removeAttribute('aria-invalid');
     });
+  }
 
-    /* Contact form feedback */
-    const form=document.getElementById('contactForm'),status=document.getElementById('formStatus');
-    form.addEventListener('submit',e=>{
+  function validatePhone(phone) {
+    const phonePattern = /^\+?[\d\s\-]{7,15}$/;
+    return phonePattern.test(phone);
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    clearErrors();
+    status.style.display = 'none';
+
+    let valid = true;
+
+    // Name
+    if (!form.name.value.trim()) {
+      errors.name.textContent = 'Please enter your name.';
+      form.name.setAttribute('aria-invalid', 'true');
+      valid = false;
+    }
+
+    // Email
+    if (!form.email.value.trim()) {
+      errors.email.textContent = 'Please enter your email.';
+      form.email.setAttribute('aria-invalid', 'true');
+      valid = false;
+    } else if (!form.email.checkValidity()) {
+      errors.email.textContent = 'Please enter a valid email address.';
+      form.email.setAttribute('aria-invalid', 'true');
+      valid = false;
+    }
+
+    // Phone (optional, but if filled must be valid)
+    if (form.phone.value.trim() && !validatePhone(form.phone.value.trim())) {
+      errors.phone.textContent = 'Please enter a valid phone number.';
+      form.phone.setAttribute('aria-invalid', 'true');
+      valid = false;
+    }
+
+    // Message
+    if (!form.message.value.trim()) {
+      errors.message.textContent = 'Please enter a message.';
+      form.message.setAttribute('aria-invalid', 'true');
+      valid = false;
+    }
+
+    if (!valid) {
+      // Focus first invalid field
+      const firstInvalid = form.querySelector('[aria-invalid="true"]');
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    // If valid, simulate submission
+    status.style.display = 'block';
+    form.reset();
+    form.name.focus();
+
+    // Clear status after 5 seconds
+    setTimeout(() => {
+      status.style.display = 'none';
+    }, 5000);
+  });
+
+  // Smooth scrolling and focus on sections for navigation links
+  document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
       e.preventDefault();
-      if(!form.checkValidity()){form.reportValidity();return;}
-      status.style.display='block';form.reset();
+      const targetId = link.getAttribute('href').slice(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+        targetEl.focus({ preventScroll: true });
+      }
     });
-
-    /* Dark-mode toggle with persistence */
-    const body=document.body,toggle=document.getElementById('themeToggle');
-    if(localStorage.getItem('theme')==='dark')body.classList.add('dark');
-    toggle.addEventListener('click',()=>{
-      body.classList.toggle('dark');
-      localStorage.setItem('theme',body.classList.contains('dark')?'dark':'light');
-      toggle.textContent=body.classList.contains('dark')?'Light Mode':'Dark Mode';
-    });
-    /* Set correct label on load */
-    toggle.textContent=body.classList.contains('dark')?'Light Mode':'Dark Mode';
-  </script>
+  });
+</script>
 </body>
 </html>
