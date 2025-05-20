@@ -3,54 +3,302 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WellPath Clinic</title>
-  <!-- Google Fonts: Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="WellPath Clinic – Accessible healthcare service landing page by Cameron Olivier" />
+  <title>WellPath Clinic | Accessible Healthcare Services</title>
   <style>
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background: #f5f9fb;
+      color: #222;
+    }
+    a {
+      color: #0366d6;
+      text-decoration: none;
+    }
+    a:hover, a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+      color: #004080;
+    }
+    header {
+      background: #004080;
+      color: white;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header nav {
+      display: flex;
+      gap: 1.25rem;
+      justify-content: center;
+      font-weight: 600;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    .hero {
+      background: white;
+      padding: 2rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #333;
+      max-width: 550px;
+      margin: 0 auto 1rem;
+    }
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 1.5rem;
+    }
+    .service {
+      background: white;
+      padding: 1.25rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
+      text-align: center;
+    }
+    .service h3 {
+      margin-bottom: 0.5rem;
+      color: #004080;
+    }
+    .doctors-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .doctor {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 1px 5px rgb(0 0 0 / 0.1);
+    }
+    .doctor img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 0.75rem;
+    }
+    form {
+      background: white;
+      padding: 1.5rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+      color: #004080;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    input:focus, textarea:focus {
+      border-color: #0366d6;
+      outline: none;
+      box-shadow: 0 0 3px #0366d6;
+    }
+    button {
+      background: #004080;
+      color: white;
+      font-weight: 700;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+    button:hover, button:focus {
+      background: #003366;
+      outline: none;
+    }
+    footer {
+      background: #e0e7f3;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 3rem;
+    }
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #004080;
+      color: white;
+      padding: 8px;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .doctors-list {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
+  <a href="#maincontent" class="skip-link">Skip to main content</a>
 
-  <!-- Header -->
-  <header class="bg-white shadow p-6">
-    <h1 class="text-4xl font-semibold text-teal-600">WellPath Clinic</h1>
-    <p class="mt-2 text-lg text-gray-600">Your health, our priority.</p>
+  <header role="banner">
+    <nav aria-label="Primary navigation">
+      <a href="#home" tabindex="0">Home</a>
+      <a href="#services" tabindex="0">Services</a>
+      <a href="#doctors" tabindex="0">Our Doctors</a>
+      <a href="#contact" tabindex="0">Contact</a>
+    </nav>
   </header>
 
-  <!-- Main content -->
-  <main class="p-6 max-w-4xl mx-auto">
-    <section class="my-8">
-      <h2 class="text-2xl font-semibold mb-4">Welcome to WellPath Clinic</h2>
-      <p class="text-gray-700 leading-relaxed">
-        We provide comprehensive healthcare services tailored to your needs. Our experienced staff is dedicated to offering quality care with compassion and respect.
-      </p>
-      <button class="mt-6 bg-teal-600 text-white font-semibold py-3 px-6 rounded shadow hover:bg-teal-700 transition duration-300">
-        Book an Appointment
-      </button>
+  <main id="maincontent" tabindex="-1">
+    <section id="home" class="hero" aria-label="Welcome section">
+      <h1>Welcome to WellPath Clinic</h1>
+      <p>Your trusted partner in accessible, compassionate healthcare.</p>
+      <p>Designed &amp; developed by Cameron Olivier</p>
     </section>
 
-    <section class="my-8">
-      <h2 class="text-2xl font-semibold mb-4">Our Services</h2>
-      <ul class="list-disc list-inside text-gray-700 space-y-2">
-        <li>Primary Care & Family Medicine</li>
-        <li>Pediatric Care</li>
-        <li>Mental Health Counseling</li>
-        <li>Urgent Care & Walk-Ins</li>
-        <li>Preventative Health Screenings</li>
-      </ul>
+    <section id="services" aria-labelledby="services-title">
+      <h2 id="services-title">Our Services</h2>
+      <div class="services-list">
+        <article class="service" tabindex="0" aria-label="Primary care service">
+          <h3>Primary Care</h3>
+          <p>Comprehensive care including health screenings, chronic disease management, and wellness checks.</p>
+        </article>
+        <article class="service" tabindex="0" aria-label="Pediatrics service">
+          <h3>Pediatrics</h3>
+          <p>Child healthcare from infancy through adolescence by experienced pediatricians.</p>
+        </article>
+        <article class="service" tabindex="0" aria-label="Behavioral health service">
+          <h3>Behavioral Health</h3>
+          <p>Confidential counseling and mental health services tailored to individual needs.</p>
+        </article>
+        <article class="service" tabindex="0" aria-label="Women's health service">
+          <h3>Women's Health</h3>
+          <p>Specialized care including maternity, gynecology, and reproductive health support.</p>
+        </article>
+      </div>
     </section>
 
-    <section class="my-8">
-      <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
-      <p class="text-gray-700">123 Wellness Drive<br />Richland, WA 99352</p>
-      <p class="text-gray-700 mt-2">Phone: (509) 555-1234</p>
-      <p class="text-gray-700">Email: contact@wellpathclinic.example</p>
+    <section id="doctors" aria-labelledby="doctors-title">
+      <h2 id="doctors-title">Meet Our Doctors</h2>
+      <div class="doctors-list">
+        <div class="doctor" tabindex="0" aria-label="Doctor Jane Smith, Primary Care Physician">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Photo of Dr. Jane Smith" />
+          <h3>Dr. Jane Smith</h3>
+          <p>Primary Care Physician</p>
+        </div>
+        <div class="doctor" tabindex="0" aria-label="Doctor Robert Lee, Pediatrician">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Photo of Dr. Robert Lee" />
+          <h3>Dr. Robert Lee</h3>
+          <p>Pediatrician</p>
+        </div>
+        <div class="doctor" tabindex="0" aria-label="Doctor Emily Carter, Behavioral Health Specialist">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Photo of Dr. Emily Carter" />
+          <h3>Dr. Emily Carter</h3>
+          <p>Behavioral Health Specialist</p>
+        </div>
+        <div class="doctor" tabindex="0" aria-label="Doctor Michael Johnson, Women's Health Specialist">
+          <img src="https://randomuser.me/api/portraits/men/27.jpg" alt="Photo of Dr. Michael Johnson" />
+          <h3>Dr. Michael Johnson</h3>
+          <p>Women's Health Specialist</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact Us</h2>
+      <form id="contactForm" aria-describedby="formInstructions" novalidate>
+        <p id="formInstructions">Please fill in the form below to get in touch with us.</p>
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" aria-required="true" required />
+
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" aria-required="true" required />
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" pattern="^\+?[\d\s\-]{7,15}$" aria-describedby="phoneHelp" />
+        <small id="phoneHelp">Format: +1234567890 or 123-456-7890</small>
+
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="4" aria-required="true" required></textarea>
+
+        <button type="submit">Submit</button>
+        <p id="formStatus" role="alert" aria-live="polite" style="color: green; display: none;">Thank you for contacting us! We will respond shortly.</p>
+      </form>
     </section>
   </main>
 
+  <footer>
+    <p>© 2025 WellPath Clinic. Designed &amp; developed by Cameron Olivier.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('header nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(anchor.getAttribute('href')).focus();
+        document.querySelector(anchor.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+
+    // Form validation & submission simulation
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      status.style.display = 'block';
+      form.reset();
+    });
+  </script>
 </body>
 </html>
