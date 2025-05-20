@@ -6,7 +6,7 @@
   <meta name="description" content="WellPath Clinic – Accessible healthcare service landing page by Cameron Olivier" />
   <title>WellPath Clinic | Accessible Healthcare Services</title>
 
-  <!-- Add Google Fonts Poppins -->
+  <!-- Google Fonts Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
   <style>
@@ -14,8 +14,6 @@
     *, *::before, *::after {
       box-sizing: border-box;
     }
-
-    /* Use Poppins font instead of system fonts */
     body {
       font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -23,11 +21,13 @@
       margin: 0;
       background: #f5f9fb;
       color: #222;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     a {
       color: #0366d6;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
     a:hover, a:focus {
       text-decoration: underline;
@@ -37,6 +37,7 @@
       margin-top: 0;
       color: #004080;
       font-weight: 600;
+      transition: color 0.3s ease;
     }
     header {
       background: #004080;
@@ -45,6 +46,10 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     header nav {
       display: flex;
@@ -56,6 +61,7 @@
       max-width: 900px;
       margin: 2rem auto;
       padding: 0 1rem;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     section {
       margin-bottom: 3rem;
@@ -66,6 +72,7 @@
       border-radius: 8px;
       box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
       text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     .hero h1 {
       font-size: 2.5rem;
@@ -76,6 +83,7 @@
       color: #333;
       max-width: 550px;
       margin: 0 auto 1rem;
+      transition: color 0.3s ease;
     }
     .services-list {
       display: grid;
@@ -88,11 +96,13 @@
       border-radius: 8px;
       box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
       text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     .service h3 {
       margin-bottom: 0.5rem;
       color: #004080;
       font-weight: 600;
+      transition: color 0.3s ease;
     }
     .doctors-list {
       display: flex;
@@ -107,6 +117,7 @@
       width: 200px;
       text-align: center;
       box-shadow: 0 1px 5px rgb(0 0 0 / 0.1);
+      transition: background 0.3s ease, color 0.3s ease;
     }
     .doctor img {
       border-radius: 50%;
@@ -114,6 +125,7 @@
       height: 120px;
       object-fit: cover;
       margin-bottom: 0.75rem;
+      transition: filter 0.3s ease;
     }
     form {
       background: white;
@@ -122,12 +134,14 @@
       box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
       max-width: 480px;
       margin: 0 auto;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     label {
       display: block;
       margin-bottom: 0.25rem;
       font-weight: 600;
       color: #004080;
+      transition: color 0.3s ease;
     }
     input, textarea {
       width: 100%;
@@ -137,14 +151,17 @@
       border-radius: 6px;
       font-size: 1rem;
       font-family: 'Poppins', sans-serif;
+      transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+      background-color: white;
+      color: #222;
     }
     input:focus, textarea:focus {
-      border-color: #008080; /* Teal accent on focus */
+      border-color: #008080;
       outline: none;
       box-shadow: 0 0 5px #008080;
     }
     button {
-      background: #008080; /* Vibrant teal */
+      background: #008080;
       color: white;
       font-weight: 700;
       padding: 0.6rem 1.2rem;
@@ -156,7 +173,7 @@
       transition: background 0.3s ease;
     }
     button:hover, button:focus {
-      background: #006666; /* Darker teal on hover */
+      background: #006666;
       outline: none;
     }
     footer {
@@ -167,6 +184,7 @@
       color: #555;
       margin-top: 3rem;
       font-family: 'Poppins', sans-serif;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     /* Skip link */
     .skip-link {
@@ -189,6 +207,84 @@
         align-items: center;
       }
     }
+
+    /* Dark mode styles */
+    body.dark {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    body.dark a {
+      color: #4fc3f7;
+    }
+    body.dark a:hover,
+    body.dark a:focus {
+      color: #81d4fa;
+    }
+    body.dark h1, 
+    body.dark h2, 
+    body.dark h3, 
+    body.dark label {
+      color: #81d4fa;
+    }
+    body.dark header {
+      background: #001f3f;
+      color: #cce7ff;
+    }
+    body.dark main {
+      background: none;
+      color: #e0e0e0;
+    }
+    body.dark .hero,
+    body.dark .service,
+    body.dark .doctor,
+    body.dark form {
+      background: #1e1e1e;
+      color: #e0e0e0;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.7);
+    }
+    body.dark .doctor img {
+      filter: brightness(0.85);
+    }
+    body.dark input, 
+    body.dark textarea {
+      background-color: #333;
+      color: #eee;
+      border-color: #555;
+    }
+    body.dark input:focus, 
+    body.dark textarea:focus {
+      border-color: #4db6ac;
+      box-shadow: 0 0 5px #4db6ac;
+    }
+    body.dark button {
+      background: #4db6ac;
+    }
+    body.dark button:hover,
+    body.dark button:focus {
+      background: #008080;
+    }
+    body.dark footer {
+      background: #222;
+      color: #aaa;
+    }
+
+    /* Dark mode toggle button styling */
+    #darkModeToggle {
+      background: #008080;
+      border: none;
+      color: white;
+      font-weight: 700;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.3s ease;
+    }
+    #darkModeToggle:hover, 
+    #darkModeToggle:focus {
+      background: #006666;
+      outline: none;
+    }
   </style>
 </head>
 <body>
@@ -201,6 +297,7 @@
       <a href="#doctors" tabindex="0">Our Doctors</a>
       <a href="#contact" tabindex="0">Contact</a>
     </nav>
+    <button id="darkModeToggle" aria-pressed="false" aria-label="Toggle dark mode">Dark Mode</button>
   </header>
 
   <main id="maincontent" tabindex="-1">
@@ -279,5 +376,30 @@
   <footer role="contentinfo">
     &copy; 2025 WellPath Clinic. All rights reserved.
   </footer>
+
+  <script>
+    // Dark mode toggle script
+    const toggleButton = document.getElementById('darkModeToggle');
+    const bodyElement = document.body;
+
+    // Load preference from localStorage
+    if (localStorage.getItem('wellpath-dark-mode') === 'true') {
+      bodyElement.classList.add('dark');
+      toggleButton.textContent = 'Light Mode';
+      toggleButton.setAttribute('aria-pressed', 'true');
+    }
+
+    toggleButton.addEventListener('click', () => {
+      const darkModeEnabled = bodyElement.classList.toggle('dark');
+      if (darkModeEnabled) {
+        toggleButton.textContent = 'Light Mode';
+        toggleButton.setAttribute('aria-pressed', 'true');
+      } else {
+        toggleButton.textContent = 'Dark Mode';
+        toggleButton.setAttribute('aria-pressed', 'false');
+      }
+      localStorage.setItem('wellpath-dark-mode', darkModeEnabled);
+    });
+  </script>
 </body>
 </html>
