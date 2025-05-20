@@ -1,4 +1,4 @@
-# Clinic-Landing-Page – Modern Healthcare Landing Page
+# Modern Healthcare Landing Page
 
 Created by **Cameron Olivier**
 
