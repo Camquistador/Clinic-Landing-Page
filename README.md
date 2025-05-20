@@ -44,3 +44,15 @@ To run this project locally:
    ```bash
    git clone https://github.com/yourusername/wellpath-clinic.git
    cd wellpath-clinic
+
+2. Open index.html in your preferred browser.
+
+🌐 Live Demo
+Check out the live site:
+🔗 https://camquistador.github.io/Clinic-Landing-Page/
+
+📬 Contact
+Cameron Olivier
+📧 cameroncolivier@gmail.com
+📍 Richland, WA
+
