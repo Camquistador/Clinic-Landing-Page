@@ -30,12 +30,6 @@ This project was created to:
 - Demonstrate strong design thinking, accessibility, and responsiveness
 - Serve as part of a professional portfolio for job interviews
 
-## 📸 Preview
-
-![WellPath Clinic Preview](preview-image.png)
-
-> _You can replace the image above with a real screenshot of the site._
-
 ## 🚀 Getting Started
 
 To run this project locally:
