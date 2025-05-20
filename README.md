@@ -56,3 +56,8 @@ Cameron Olivier
 📧 cameroncolivier@gmail.com
 📍 Richland, WA
 
+## 🛑 Disclaimer
+
+This website is a **fictional project created for portfolio purposes only**.  
+All names, branding, and content are entirely made up, and any resemblance to real clinics, businesses, or individuals is purely coincidental.  
+Images are sourced from public placeholder services such as [RandomUser.me](https://randomuser.me).
