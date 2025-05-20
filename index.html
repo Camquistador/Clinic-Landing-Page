@@ -5,29 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="WellPath Clinic – Accessible healthcare service landing page by Cameron Olivier" />
   <title>WellPath Clinic | Accessible Healthcare Services</title>
-
-  <!-- Google Fonts Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-
   <style>
     /* Reset and base */
     *, *::before, *::after {
       box-sizing: border-box;
     }
     body {
-      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       line-height: 1.6;
       margin: 0;
-      background: #f5f9fb;
-      color: #222;
-      transition: background 0.3s ease, color 0.3s ease;
+      background: #f9fcff;
+      color: #1a1a1a;
     }
-
     a {
-      color: #0366d6;
+      color: #0050b3;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
     a:hover, a:focus {
       text-decoration: underline;
@@ -35,21 +27,15 @@
     }
     h1, h2, h3 {
       margin-top: 0;
-      color: #004080;
-      font-weight: 600;
-      transition: color 0.3s ease;
+      color: #003366;
     }
     header {
-      background: #004080;
+      background: #003366;
       color: white;
       padding: 1rem 1.5rem;
       position: sticky;
       top: 0;
       z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.3s ease, color 0.3s ease;
     }
     header nav {
       display: flex;
@@ -61,7 +47,6 @@
       max-width: 900px;
       margin: 2rem auto;
       padding: 0 1rem;
-      transition: background 0.3s ease, color 0.3s ease;
     }
     section {
       margin-bottom: 3rem;
@@ -72,7 +57,6 @@
       border-radius: 8px;
       box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
       text-align: center;
-      transition: background 0.3s ease, color 0.3s ease;
     }
     .hero h1 {
       font-size: 2.5rem;
@@ -83,7 +67,6 @@
       color: #333;
       max-width: 550px;
       margin: 0 auto 1rem;
-      transition: color 0.3s ease;
     }
     .services-list {
       display: grid;
@@ -96,13 +79,10 @@
       border-radius: 8px;
       box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
       text-align: center;
-      transition: background 0.3s ease, color 0.3s ease;
     }
     .service h3 {
       margin-bottom: 0.5rem;
-      color: #004080;
-      font-weight: 600;
-      transition: color 0.3s ease;
+      color: #003366;
     }
     .doctors-list {
       display: flex;
@@ -117,7 +97,6 @@
       width: 200px;
       text-align: center;
       box-shadow: 0 1px 5px rgb(0 0 0 / 0.1);
-      transition: background 0.3s ease, color 0.3s ease;
     }
     .doctor img {
       border-radius: 50%;
@@ -125,7 +104,6 @@
       height: 120px;
       object-fit: cover;
       margin-bottom: 0.75rem;
-      transition: filter 0.3s ease;
     }
     form {
       background: white;
@@ -134,34 +112,29 @@
       box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
       max-width: 480px;
       margin: 0 auto;
-      transition: background 0.3s ease, color 0.3s ease;
     }
     label {
       display: block;
       margin-bottom: 0.25rem;
       font-weight: 600;
-      color: #004080;
-      transition: color 0.3s ease;
+      color: #003366;
     }
     input, textarea {
       width: 100%;
-      padding: 0.5rem;
+      padding: 0.6rem;
       margin-bottom: 1rem;
-      border: 2px solid #ccc;
+      border: 2px solid #bbb;
       border-radius: 6px;
       font-size: 1rem;
-      font-family: 'Poppins', sans-serif;
-      transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-      background-color: white;
-      color: #222;
+      background: #fff;
     }
     input:focus, textarea:focus {
-      border-color: #008080;
+      border-color: #0050b3;
       outline: none;
-      box-shadow: 0 0 5px #008080;
+      box-shadow: 0 0 3px #0050b3;
     }
     button {
-      background: #008080;
+      background: #0050b3;
       color: white;
       font-weight: 700;
       padding: 0.6rem 1.2rem;
@@ -169,29 +142,25 @@
       border-radius: 6px;
       cursor: pointer;
       font-size: 1rem;
-      font-family: 'Poppins', sans-serif;
       transition: background 0.3s ease;
     }
     button:hover, button:focus {
-      background: #006666;
+      background: #003a80;
       outline: none;
     }
     footer {
-      background: #e0e7f3;
+      background: #e6eff8;
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      color: #555;
+      color: #333;
       margin-top: 3rem;
-      font-family: 'Poppins', sans-serif;
-      transition: background 0.3s ease, color 0.3s ease;
     }
-    /* Skip link */
     .skip-link {
       position: absolute;
       top: -40px;
       left: 0;
-      background: #004080;
+      background: #003366;
       color: white;
       padding: 8px;
       z-index: 100;
@@ -200,90 +169,11 @@
     .skip-link:focus {
       top: 0;
     }
-    /* Responsive adjustments */
     @media (max-width: 600px) {
       .doctors-list {
         flex-direction: column;
         align-items: center;
       }
-    }
-
-    /* Dark mode styles */
-    body.dark {
-      background: #121212;
-      color: #e0e0e0;
-    }
-    body.dark a {
-      color: #4fc3f7;
-    }
-    body.dark a:hover,
-    body.dark a:focus {
-      color: #81d4fa;
-    }
-    body.dark h1, 
-    body.dark h2, 
-    body.dark h3, 
-    body.dark label {
-      color: #81d4fa;
-    }
-    body.dark header {
-      background: #001f3f;
-      color: #cce7ff;
-    }
-    body.dark main {
-      background: none;
-      color: #e0e0e0;
-    }
-    body.dark .hero,
-    body.dark .service,
-    body.dark .doctor,
-    body.dark form {
-      background: #1e1e1e;
-      color: #e0e0e0;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.7);
-    }
-    body.dark .doctor img {
-      filter: brightness(0.85);
-    }
-    body.dark input, 
-    body.dark textarea {
-      background-color: #333;
-      color: #eee;
-      border-color: #555;
-    }
-    body.dark input:focus, 
-    body.dark textarea:focus {
-      border-color: #4db6ac;
-      box-shadow: 0 0 5px #4db6ac;
-    }
-    body.dark button {
-      background: #4db6ac;
-    }
-    body.dark button:hover,
-    body.dark button:focus {
-      background: #008080;
-    }
-    body.dark footer {
-      background: #222;
-      color: #aaa;
-    }
-
-    /* Dark mode toggle button styling */
-    #darkModeToggle {
-      background: #008080;
-      border: none;
-      color: white;
-      font-weight: 700;
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-family: 'Poppins', sans-serif;
-      transition: background 0.3s ease;
-    }
-    #darkModeToggle:hover, 
-    #darkModeToggle:focus {
-      background: #006666;
-      outline: none;
     }
   </style>
 </head>
@@ -297,7 +187,6 @@
       <a href="#doctors" tabindex="0">Our Doctors</a>
       <a href="#contact" tabindex="0">Contact</a>
     </nav>
-    <button id="darkModeToggle" aria-pressed="false" aria-label="Toggle dark mode">Dark Mode</button>
   </header>
 
   <main id="maincontent" tabindex="-1">
@@ -305,7 +194,6 @@
       <h1>Welcome to WellPath Clinic</h1>
       <p>Your trusted partner in accessible, compassionate healthcare.</p>
       <p>Designed &amp; developed by Cameron Olivier</p>
-      <button class="book-btn" aria-label="Book an appointment">Book an Appointment</button>
     </section>
 
     <section id="services" aria-labelledby="services-title">
@@ -358,47 +246,54 @@
 
     <section id="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact Us</h2>
-      <form action="#" method="post" aria-label="Contact form">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required aria-required="true" />
+      <form id="contactForm" aria-describedby="formInstructions" novalidate>
+        <p id="formInstructions">Please fill in the form below to get in touch with us.</p>
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" aria-required="true" required />
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required aria-required="true" />
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" aria-required="true" required />
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" pattern="^\+?[\d\s\-]{7,15}$" aria-describedby="phoneHelp" />
+        <small id="phoneHelp">Format: +1234567890 or 123-456-7890</small>
 
-        <button type="submit" aria-label="Send message">Send Message</button>
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="4" aria-required="true" required></textarea>
+
+        <button type="submit">Submit</button>
+        <p id="formStatus" role="alert" aria-live="polite" style="color: green; display: none;">Thank you for contacting us! We will respond shortly.</p>
       </form>
     </section>
   </main>
 
-  <footer role="contentinfo">
-    &copy; 2025 WellPath Clinic. All rights reserved.
+  <footer>
+    <p>© 2025 WellPath Clinic. Designed &amp; developed by Cameron Olivier.</p>
   </footer>
 
   <script>
-    // Dark mode toggle script
-    const toggleButton = document.getElementById('darkModeToggle');
-    const bodyElement = document.body;
+    document.querySelectorAll('header nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(anchor.getAttribute('href')).focus();
+        document.querySelector(anchor.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
 
-    // Load preference from localStorage
-    if (localStorage.getItem('wellpath-dark-mode') === 'true') {
-      bodyElement.classList.add('dark');
-      toggleButton.textContent = 'Light Mode';
-      toggleButton.setAttribute('aria-pressed', 'true');
-    }
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
 
-    toggleButton.addEventListener('click', () => {
-      const darkModeEnabled = bodyElement.classList.toggle('dark');
-      if (darkModeEnabled) {
-        toggleButton.textContent = 'Light Mode';
-        toggleButton.setAttribute('aria-pressed', 'true');
-      } else {
-        toggleButton.textContent = 'Dark Mode';
-        toggleButton.setAttribute('aria-pressed', 'false');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
       }
-      localStorage.setItem('wellpath-dark-mode', darkModeEnabled);
+      status.style.display = 'block';
+      form.reset();
     });
   </script>
 </body>
